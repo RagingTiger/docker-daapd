@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.8 as buildstage
+FROM lsiobase/alpine.armhf as buildstage
 ############## build stage ##############
 
 RUN \
@@ -80,7 +80,7 @@ RUN \
  make DESTDIR=/tmp/daapd-build install && \
  mv /tmp/daapd-build/etc/forked-daapd.conf /tmp/daapd-build/etc/forked-daapd.conf.orig
 ############## runtime stage ##############
-FROM lsiobase/alpine:3.8
+FROM lsiobase/alpine.armhf
 
 # set version label
 ARG BUILD_DATE
